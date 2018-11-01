@@ -1,0 +1,20 @@
+= Conceptual Model — Evaluation Results
+
+The evaluation engine assigns evaluation results to the following:
+1. Each rule that is evaluated - Rule Result (RR)
+2. The target resources of each rule, which can include the "page" element - Element Results (ER)
+
+A rule has a scope, which indicates the context or level at which its definition (compliance requirement) is targeted. The scope is one of the following: Element, Page or Website.
+
+Definition of the relationships between rule scope, target resources and evaluation results:
+
+|| **Rule Scope** || **Target Resources** || **Evaluation Results** ||
+|| Element            || Elements                   || ERs; RR == aggregation of ERs ||
+|| Page                 || Elements, Page          || ERs incl. page; RR == page ER -> lower-level ERs ||
+|| Website            || Elements, Page           || ERs incl. page; RR == page ER -> lower-level ERs and other pages ||
+
+From the perspective of target resources, evaluation results at the Rule level (RR) depend on the rule scope:
+
+  Element:: Only Elements
+  Page::                Page in relation to its lower-level Elements only
+  Website::             Page in relation to its lower-level Elements AND to other pages in website

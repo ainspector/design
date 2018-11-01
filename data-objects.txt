@@ -1,0 +1,81 @@
+[wiki:interaction-design/conceptual-model Conceptual Model] |
+[wiki:interaction-design/data-objects Data Objects] |
+[wiki:interaction-design/getting-started Getting Started]
+
+= Data Objects =
+
+The primary data or information objects with which users will interact. These comprise the foundational components of the conceptual model.
+
+== Rulesets ==
+
+* ARIA Strict
+  * Rules that require compliance with WCAG 2.0 A and AA Success Criteria and WAI-ARIA
+
+* ARIA Transitional
+  * Rules that require compliance with WCAG 2.0 A and AA Success Criteria and the structural parts of WAI-ARIA (such as the use of landmarks), and recommend additional ARIA compliance.
+
+== Rule Categories ==
+
+Each category includes rules that address a related set of accessibility requirements:
+
+* Landmarks
+  * provide meta-level labels for the content and structure of a web resource, thus making content findable and navigable
+  * target resources: ARIA landmarks
+
+* Headings
+  * provide labels for the content and structure of a web resource, thus making content findable and navigable
+  * ensure that markup complies with web standards (e.g. avoiding the use of deprecated or proprietary elements)
+  * target resources: heading elements (h1..h6)
+
+* !Styles/Content
+  * ensure proper use of styling for adequate color contrast
+  * ensure that reading order is meaningful (e.g. when using tables for page layout)
+  * ensure that color is not used as the only means of conveying information
+  * use markup to properly identify the language of content (for entire page or parts of page)
+  * target resources: text content, table elements
+
+* Images
+  * provide text equivalents for static images and graphics
+  * target resources: area, img and canvas elements and embedded SVG and MathML objects
+
+* Links
+  * make links usable, predictable and understandable
+  * target resources: a, area and [role=link] elements
+
+* Tables
+  * provide meta-level labels (table, row, column) and row and column label references in all data cells, thus making the organization of the table explicit at all levels
+  * tables used for layout must have role=presentation
+  * target resources: table and caption elements, table[summary] attribute, th and td elements
+
+* Forms
+  * label interactive controls and input fields in forms
+  * target resources: button, textarea, select and input element of type text, password, radio, and checkbox
+
+* !Widgets/Scripts
+  * provide event handlers, tabindex values, accessible names and appropriate properties and states for widgets
+  * target resources: widgets, objects, applets, embed
+
+* !Audio/Video
+  * provide text equivalents in the form of captions, transcripts and audio and text descriptions for video and audio content
+  * target resources: embed, object, audio, video
+
+* Keyboard Support
+  * allow keyboard users to traverse interactive elements in a logical order
+  * make interactive elements usable and predictable
+  * target resources: a, area and [role=link] elements, form controls, widgets
+
+* Timing
+  * allow users enough time to perform required actions
+  * allow users to control or stop moving, blinking and/or scrolling text
+  * target resources: all content
+
+* Site Navigation
+  * use consistent naming and structure throughout a website
+  * provide multiple ways to locate resources (e.g. search, navigation menus, breadcrumbs, etc.)
+  * use consistent styling and layout for navigation and main content
+  * target resources: a, area and [role=link] elements, headings, landmarks, title element, labels (e.g. form and widget)
+
+== Rules ==
+
+  * [http://dev.oaa-accessibility.org/ruleset/ARIA_STRICT/ Current list of rules (OAA Coding Practices website)]
+  * [https://trac.ainspector.org/design/wiki/interaction-design/conceptual-model#accessibility-rule Definition of an Accessibility Rule in the Conceptual Model for Web Accessibility Evaluation]

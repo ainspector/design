@@ -1,0 +1,135 @@
+[wiki:interaction-design/conceptual-model Conceptual Model] |
+[wiki:interaction-design/data-objects Data Objects] |
+[wiki:interaction-design/getting-started Getting Started]
+
+{{{
+#!html
+
+<h2 id="gettingstarted:conceptualfoundation">Getting Started: Conceptual Foundation</h2>
+
+<p>All web accessibility tools that are based on the OpenAjax Alliance Evaluation Library assume a familiarity with the following standards and concepts.</p>
+
+<h3>Accessibility Standards</h3>
+<ul>
+<li><a href="http://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a></li>
+<li><a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (WAI-ARIA) 1.0</a></li>
+</ul>
+
+<h3>Basic Concepts</h3>
+<dl>
+<dt><em>Rule</em></dt>
+<dd>A low-level accessibility compliance requirement with numerous components, the most basic of which are a <em>definition</em>, an <em>evaluation function</em>, and <em>result messages</em>. When a rule is evaluated, it is assigned a <em>rule result value</em>.</dd>
+
+<dt><em>Target resources</em></dt>
+<!--
+<dd>Each rule specifies a set of HTML elements to which it applies. These are called its target resources, and include familiar elements such as <em>div</em>, <em>img</em> and <em>input</em>. A rule may also target a pseudo-element designated as <em>page</em>, which is a placeholder for the document element. When a rule is evaluated, each of its target resources is assigned an <em>element result value</em>.</dd>
+-->
+<dd>The set of HTML elements to which a particular rule applies. These include familiar elements such as <em>div</em>, <em>img</em> and <em>input</em>, as well as a pseudo-element designated as <em>page</em>, which is a placeholder for the document element. When a rule is evaluated, each of its target resources is assigned an <em>element result value</em>.</dd>
+
+<dt><em>Ruleset</em></dt>
+<dd>A set of rules that embodies specific standards compliance goals. Each rule within a ruleset is designated as either <em>required</em> or <em>recommended</em>, according to its relationship to the compliance goals of the ruleset.</dd>
+
+<dt><em>Evaluation</em></dt>
+<dd>The application of all evaluation functions of all rules in the selected ruleset to their corresponding target resources in a web page, and the subsequent collection of all evaluation results and messages, at both the rule and element levels, into a dataset.</dd>
+
+<dt><em>Rule result</em></dt>
+<dd>The aggregate result of a rule evaluation with respect to its target resources (all of its target elements and/or the entire page).</dd>
+
+<dt><em>Element result</em></dt>
+<dd>The result of a rule evaluation with respect to one of its target elements.</dd>
+</dl>
+
+
+<h3>Rule and element result values</h3>
+
+<table border="1" cellspacing="0">
+<colgroup>
+<col style="text-align:left;"/>
+<col style="text-align:left;"/>
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><em>Value</em></th>
+	<th style="text-align:left;"><em>Abbrev</em></th>
+        <th style="text-align:left;"><em>Rule</em></th>
+        <th style="text-align:left;"><em>Element</em></th>
+	<th style="text-align:left;"><em>Meaning</em></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Violation</td>
+	<td style="text-align:left;">V</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:left;">One or more target elements fail the requirements of a <em>required</em> rule</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Warning</td>
+	<td style="text-align:left;">W</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:left;">One or more target elements fail the requirements of a <em>recommended</em> rule</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Manual Check</td>
+	<td style="text-align:left;">MC</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:left;">Unable to programmatically determine a result - evaluation requires human inspection</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Pass</td>
+	<td style="text-align:left;">P</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:left;">All rule requirements were satisfied</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Not Applicable</td>
+	<td style="text-align:left;">N/A or &#8216;-&#8217;</td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:center;"></td>
+	<td style="text-align:left;">Rule was not applied because there were no relevant target elements</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Hidden</td>
+	<td style="text-align:left;">H</td>
+	<td style="text-align:center;"></td>
+	<td style="text-align:center;">x</td>
+	<td style="text-align:left;">Target elements were not evaluated because they are hidden (either visually or from assistive technologies)</td>
+</tr>
+</tbody>
+</table>
+
+<h3>More about rules, target resources and result values</h3>
+<ul>
+<li>A rule tests target resources for specific accessibility features.</li>
+<li>Some rules are fully automated and return pass or fail results and messages.</li>
+<li>Other rules can only identify the need for human judgement to determine whether an accessibility requirement has been met. These return <em>manual check</em> results and messages.</li>
+<li>If target resources are not found on the page, the rule result is designated as <em>not applicable</em>.</li>
+<!--
+<li>If target resources for a rule are hidden, the rule result is designated as <em>hidden</em>. The hidden resources are included in the element results list to enable developers to consider their accessibility if and when they become available to users.</li>
+-->
+<li>If target resources for a rule are hidden, their element results are designated as <em>hidden</em>. Although hidden elements are not evaluated, they are listed at the element results level to enable developers to consider their accessibility if and when they become available to users.</li>
+<li>Rules also include information on accessibility techniques and links to related resources to help developers understand how to meet the rquirements of a rule.</li>
+</ul>
+
+<h3>AInspector Sidebar: Navigation hints and shortcuts</h3>
+<ul>
+<li>Buttons, table column headers and other widgets have tooltips that describe their meanings and/or functionality.</li>
+<li>Use the up and down arrow keys to navigate within tables.</li>
+<li>After selecting a table row, navigate to the next level of information using any of the following:
+    <ul>
+    <li>Click the Details button below the table</li>
+    <li>Press Return, Enter or Spacebar</li>
+    <li>Double click the row</li>
+    </ul>
+</li>
+<li>Keyboard shortcut to navigate back (up) one level: Ctrl/Cmd Backspace</li>
+<li>Keyboard shortcut to toggle the sidebar: Ctrl/Cmd-Shift-colon (:)</li>
+</ul>
+
+}}}
