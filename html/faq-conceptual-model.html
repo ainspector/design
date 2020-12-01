@@ -1,0 +1,67 @@
+= Q & A: Conceptual Model
+
+  Question::
+  How are the terms "element", "target resources" and "node results" related?
+
+  Answer::
+  An element definition is used to specify target resources. For example, if we refer to "img" elements, or "th elements with id attributes", we are using element definitions that allow us to select actual elements on a particular web page.
+
+  When we select actual element tags on a particular page, we refer to them as "nodes," to indicate that these are concrete examples of "elements" based on the element definitons we used. When "nodes" are evaluated, we produce "node results".
+
+  "Target resources" is a generic term for a definition that specifies all of the elements and their properties (if any) that we care about with respect to a particular accessibility rule. An example of "target resources" for the CONTROL_1 rule, which states "textarea, select and input elements of type text, password, checkbox, radio and file must have an accessible label" is:
+
+  input[type="checkbox"], input[type="radio"], input[type="text"], input[type="password"], input[type="file"], select, textarea
+
+  Question::
+  Why are we creating accessibility rules? What is their significance?
+
+  Answer::
+  WCAG guidelines are obviously stated at a relatively high level. The success criteria associated with those guidelines are also rather high level, exemplified by the fact that at the next level down, i.e. the "How to Meet" documentation, the techniques refer to a wide variety of technologies, including HTML, PDF, Flash, !JavaScript, etc. Success Criteria are, in fact, designed to be technology-independent in order to retain applicability further into the future.
+
+  A rule is a requirement statement that approximates the level at which web developers and content providers operate and think in their attempts at attaining compliance.
+
+  Question::
+  What is the relationship of an accessibility rule to a technique?
+
+  Answer::
+  Many rules clearly imply or specifically describe a technique that should or must be used to meet the requirement. In this case there is a one-to-one mapping of a rule to a technique.
+
+  On the other hand, some rules are stated at a slightly higher level than is the case for those simper rules described above, because there are multiple techniques that may be used to satisfy the requirement. In such cases, the rule should explicitly enumerate those techniques in a list ordered by preference.
+
+  The relationship of an accessibility rule to one or more WCAG 2.0 techniques is one of cross-reference. That is, a rule should not simply refer the reader to one or more WCAG techniques in order to explain or describe how to meet the requirement. Rather, the rule statement itself should make clear which technique(s) are to be used to meet the requirement. References to WCAG techniques are offered as additional resources to further the reader's understanding of the rule.
+
+
+  Question::
+  What is the distinction between a rule that has element scope and one that has page scope?
+
+  Answer::
+  Some rules have as their target the page object (e.g. each page must include a title element) whereas other rules apply to all elements on a page (e.g. landmark rules).
+
+  In the latter case, even though it may seem that the target is the element group that includes all elements on the page, because this grouping is indeterminate until a particular page is evaluated, it is more appropriate to consider the target of such a rule also as being the page object.
+
+  Further implication: An element group is a ''specific'' set of HTML elements.
+
+
+  Question::
+  What is the difference between an element group that is the target of a rule, and one that is used for categorizing rules?
+
+  Answer::
+  While each rule has a specific HTML-object target (element, element group, page or site), rules also fall into more general categories (e.g. CONTROL or TABLE rules) which are not necessarily defined rigorously but have the more general purpose of being organizational. This aspect of the conceptual model is still handled by the idea of an element group, but one that is used for a slightly different purpose than that of an element group specified as the target of a rule.
+
+
+  Question::
+  What is the difference between an element group and a rule category?
+
+  Answer::
+  The HTML-related objects comprise the set of rule targets, and an element group is one of those targets, defined as "a set of elements defined by enumeration and/or by one or more predicates." The main point is that an element group is well-defined.
+
+  Rule categories, on the other hand, are somewhat flexible, and are currently being used in a couple of different (but related) capacities: We've used them in our naming convention for creating Rule IDs, and we've also used them in providing related evaluation results in our tools (e.g. the Firefox and Firebug add-ons).
+
+  The main significance of rule categories is that they are used for organizing rules and evaluation results in a conceptual framework that we feel is more familiar to most web developers than the Guidelines and Success Criteria of WCAG 2.0.
+
+
+  Question::
+  What is the meaning of non-applicable as an evaluation result value?
+
+  Answer::
+  Currently only meaningful at the rule level...

@@ -1,0 +1,27 @@
+= Introduction to the Conceptual Model for Web Accessibility Evaluation
+
+1. The central concept in this conceptual model is that of an //accessibility rule//. A rule defines an accessibility requirement as it pertains to specific HTML elements and/or markup patterns. Rules are technology-specific, targeting HTML, CSS and !JavaScript coding practices. By virtue of its technology-specific context, each rule additionally prescribes one or more //techniques// that are sufficient for meeting the requirement.
+
+2. Each rule maps to a //primary WCAG 2.0 success criterion// and possibly to other related success criteria. From its primary WCAG success criterion, each rule inherits a //level//: //A//, //AA// or //AAA//.
+
+3. Rules are organized into //rule categories//. These provide a means for grouping related rules into categories that are meaningful to web developers. Examples include Form Controls, !Links/Navigation, Structure, Images, etc.
+
+4. Rules exist within one or more //rulesets//, each of which has a target audience and a set of standards compliance goals. For example, the ARIA Strict ruleset is for users that are attempting to comply not only with WCAG 2.0, but also WAI-ARIA in a relatively complete fashion.
+
+5. Within a ruleset, a rule can be designated //required// or //recommended//. A //required// rule is one that is considered necessary for meeting the compliance goals of the ruleset. A //recommended// rule is one that may go beyond the compliance goals of the ruleset to which it belongs, possibly pointing to new or only partially adopted standards. A given rule may be required in one ruleset and recommended in another.
+
+6. Because rules map to WCAG success criteria and are also grouped in Rule Categories, we have two different ways of organizing //summary results//. We can look at them organized either by Rule Categories or by WCAG 2.0 Principles, Guidelines and Success Criteria.
+
+7. When a rule is applied to a page, it //targets// one or more specific HTML elements, or possibly the entire page. For example, the rule that states "Each `img` element must have an `alt` attribute" targets each `img` element on the page.
+
+8. When a rule is evaluated with respect to a //target element//, it produces an //element result//. For a required rule, if the target element fails to meet the rule requirement, the element result is labeled a //violation//; for a recommended rule, when the rule requirement is not met, the result is deemed a //warning//. When the rule requirement is satisfied by the target element, the result is labeled //pass//.
+
+{{{#!comment
+If the rule is designated as required within its ruleset, and the target element does not meet the requirement, the element result is labeled a **violation**. Likewise, when the requirement of a recommended rule is not met, the element result is called a **warning**.
+
+9. Some rules cannot be evaluated definitively, and require user intervention in the form of a **manual check**. Manual check rules are categorized as either high priority or normal priority.
+}}}
+
+9. Some rules cannot be evaluated definitively, and require user intervention in the form of a //manual check//. In order to manage the potentially large volume of such results, we are looking for a means to differentiate between higher and lower priority manual checks.
+
+10. The evaluation results for each rule are aggregated into a //rule result//. This provides information about the rule itself and the element results for its target elements. These, in turn, are organized by the number of violations (V), warnings (W), manual checks (MC) and pass (P) result values.

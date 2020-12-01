@@ -1,0 +1,111 @@
+[wiki:interaction-design/conceptual-model Conceptual Model] |
+[wiki:interaction-design/data-objects Data Objects] |
+[wiki:interaction-design/getting-started Getting Started]
+
+= Conceptual Model for Web Accessibility Evaluation
+
+A conceptual model describes all of the objects, actions and concepts, and their relationships within a system.
+
+This conceptual model also serves as the foundation for [http://trac.web-accessibility-best-practices.org/wiki/design/conceptual-model the conceptual model for web accessibility coding practices].
+
+== A. Web resource objects
+
+1. //element//: an HTML element, its attributes and properties
+1. //page//: an HTML document, including its top-level element
+
+== B. Web resource definitions
+
+1. //element definition//: an HTML element name (or wildcard denoting any element) and an optional predicate, e.g. input[type="text"]
+1. //target elements//: the set of HTML elements defined by one or more element definitions
+1. //target resources//: the set of web resources to which a rule is applied (typically //target elements// but may also include the top-level //page//)
+
+== C. Evaluation objects
+
+1. //accessibility rule//: the requirements that one or more target resources must meet
+1. //rule category//: a grouping of rules with related accessibility requirements or target resources
+1. //rule mapping//: the membership properties of an accessibility rule within a ruleset (e.g. whether a rule is //required// or //recommended//)
+1. //ruleset//: a collection of rule mappings tailored for a particular audience and with a set of standards compliance goals (e.g. WCAG 2.0)
+
+== D. Evaluation actions and results
+
+1. //rule evaluation//: the application of an accessibility rule to its target resources
+1. //result value//: one of the following: //violation//, //warning//, //pass//, //manual check//, //not applicable//
+  * a rule mapping specifies whether a rule is //required// or //recommended//
+  * //violation// is the result value when a //required// rule fails
+  * //warning// is the result value when a //recommended// rule fails
+  * //pass//, //manual check// and //not applicable// values are common to both //required// and //recommended// rules
+1. //element result//: the result of a rule evaluation with respect to one of its target elements
+1. //rule result//: the aggregate result of a rule evaluation with respect to its target resources (all of its target elements and/or the entire page)
+1. //summary result//: an aggregation of element and/or rule results (organized and quantified in various ways, e.g. percentage of //pass// results)
+
+----
+
+== Further breakdown of evaluation objects
+
+=== [=#accessibility-rule accessibility rule]
+* title: a concise or abbreviated statement of the rule definition
+* definition: the markup patterns or requirements that must be present in, or met by, the target resources
+* target resources: the set of web resources to which this rule applies
+* scope: //element// or //page//: specifies the level of the target resources (which affects how the rule result is calculated and reported)
+* purpose: an explanation of why the rule is important 
+* techniques: the specific markup patterns that are required or recommended for passing the rule
+* manual checks: the list of questions the user needs to ask when performing a manual check
+* corrective action: concise description of what needs to be done to remedy a failure or perform a manual check
+* element properties: the specific properties of the target elements to which the rule definition pertains
+* category: the rule category to which the rule belongs
+* primary requirement id: reference to the most pertinent WCAG 2.0 Success Criterion for this rule
+* related requirement ids: list of references to other WCAG 2.0 Success Criteria, ordered by pertinence 
+* language dependency: the languages upon which the rule depends, if any
+* informational links: links to examples, articles or other resources relating to the rule definition and/or techniques
+* last updated: date of most recent changes
+* id: unique identifier for the rule (referenced by rule mappings, element results and rule results)
+
+=== rule category
+* a grouping of rules with related accessibility requirements or target resources
+* informational links: links to further documentation re. the set of rules and their relationships
+* examples of categories based on rules related by accessibility requirements: Color Contrast, Landmarks, Language
+* examples of categories based on rules related by target resources: !Images/Media, Controls, Headings, Links, Lists, Tables, !Abbr/Acronym
+
+=== [=#rule-mapping rule mapping]
+* type: //required// or //recommended//
+* enabled: //true// or //false//
+* rule id: identifier of the //accessibility rule// to which the above properties are being mapped
+
+=== ruleset
+* a collection of rule mappings tailored for a particular audience and with a set of standards compliance goals (e.g. WCAG 2.0, Levels A & AA)
+* Note: via rule mappings, the rule type (required or recommended) for any given rule can vary from one ruleset to another
+* Note: via rule mappings, one ruleset may include rules that other rulesets omit and vice versa (using the "enabled" property)
+
+== Further breakdown of evaluation results
+
+=== element result
+* the element name and its document position
+* the //result value// at the element level
+* a result message, including a corrective action when appropriate
+* pertinent element properties and values, which may help identify the element
+* Note: the element //result value// may be one of the evaluation result values defined above or //hidden//
+  * for example, for rules with //element// scope, the element-level result value may be //hidden//, indicating that the element was not visible to assistive technologies
+* rule id: identifier of the //accessibility rule// that was applied to obtain this result
+
+=== rule result
+* the //result value// at the rule level
+* a result message, including a corrective action when appropriate
+* the set of //element results// used in the overall determination of the rule result
+* page-level properties and their values as applicable (when the rule has //page// scope)
+* rule id: identifier of the //accessibility rule// that was applied to obtain this result
+
+=== summary result
+* at the lowest level, a single rule result
+* aggregation of rule results by web resource objects:
+  * element: all results for all rules that apply to a particular element; all results for all rules that apply to a set of elements (e.g. all images)
+  * page: all results for all page-level rules; all results for all element-level rules that apply to any elements on the page
+* aggregation of rule results at page level by WCAG success criteria
+* aggregation of rule results at page level by WCAG Level (A, AA, AAA)
+* aggregation of rule results at page level by rule type (required, recommended)
+* a list of all rules that were not evaluated (enabled = false)
+
+== Additional resources
+* [wiki:interaction-design/conceptual-model/introduction Introduction to the Conceptual Model]
+* [wiki:interaction-design/conceptual-model/simplified-diagram Simplified Diagram of Conceptual Model for Web Accessibility Evaluation]
+* [wiki:interaction-design/conceptual-model/notes Q & A: Conceptual Model]
+* [wiki:interaction-design/conceptual-model/evaluation-results Evaluation Results]
